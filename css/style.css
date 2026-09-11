@@ -42,8 +42,6 @@
 
   --container-max-width: 720px;
   --container-padding: var(--space-3);
-
-  --breakpoint-desktop: 768px;
 }
 
 /* --------------------------------------------------------------------------
@@ -171,7 +169,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* --------------------------------------------------------------------------
-   4. Accessibilité — focus visible
+   4. Accessibilité — focus visible, préférences de mouvement
    -------------------------------------------------------------------------- */
 
 a:focus-visible,
@@ -182,6 +180,12 @@ textarea:focus-visible,
   outline: 2px solid var(--color-ink);
   outline-offset: 2px;
   border-radius: var(--radius-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 /* --------------------------------------------------------------------------
