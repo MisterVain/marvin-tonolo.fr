@@ -200,12 +200,12 @@ textarea:focus-visible,
 }
 
 .section {
-  padding-block: var(--space-6);
+  padding-block: var(--space-4);
 }
 
 @media (min-width: 768px) {
   .section {
-    padding-block: var(--space-7);
+    padding-block: var(--space-5);
   }
 }
 
