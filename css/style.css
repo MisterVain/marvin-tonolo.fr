@@ -287,6 +287,11 @@ textarea:focus-visible,
   transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
 
+.hero-cta .btn-primary,
+.hero-cta .btn-secondary {
+  min-width: 11.5rem;
+}
+
 .btn-primary {
   background-color: var(--color-ink);
   color: var(--color-paper);
@@ -402,14 +407,14 @@ textarea:focus-visible,
   display: inline-block;
   font-family: var(--font-mono);
   font-weight: 500;
-  font-size: 12px;
+  font-size: 10px;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--color-text-secondary);
   background-color: transparent;
   border: 1px solid var(--color-line);
   border-radius: var(--radius-sm);
-  padding: 6px 14px;
+  padding: 5px 12px;
   margin-bottom: var(--space-3);
 }
 
@@ -466,6 +471,8 @@ textarea:focus-visible,
 .hero-tagline {
   margin-top: var(--space-3);
   max-width: 48ch;
+  font-family: var(--font-body);
+  text-align: left;
 }
 
 /* --------------------------------------------------------------------------
