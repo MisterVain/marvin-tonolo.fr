@@ -397,3 +397,211 @@ textarea:focus-visible,
     max-width: 240px;
   }
 }
+
+/* --------------------------------------------------------------------------
+   13. En-tête / navigation
+   -------------------------------------------------------------------------- */
+
+.site-header {
+  border-bottom: 1px solid var(--color-line);
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding-block: var(--space-3);
+}
+
+.nav-brand {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+.nav-list a {
+  color: var(--color-text-secondary);
+}
+
+.nav-list a:hover {
+  color: var(--color-ink);
+}
+
+/* --------------------------------------------------------------------------
+   14. Groupe de boutons (hero, contact)
+   -------------------------------------------------------------------------- */
+
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.hero-tagline {
+  margin-top: var(--space-3);
+  max-width: 48ch;
+}
+
+/* --------------------------------------------------------------------------
+   15. Compétences clés
+   -------------------------------------------------------------------------- */
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.skill-item h3 {
+  font-size: 16px;
+  margin-bottom: var(--space-1);
+}
+
+.skills-extra {
+  margin-top: var(--space-5);
+}
+
+.skills-extra h3 {
+  font-size: 16px;
+  margin-bottom: var(--space-2);
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  padding: var(--space-1) var(--space-2);
+}
+
+/* --------------------------------------------------------------------------
+   16. Preuves concrètes
+   -------------------------------------------------------------------------- */
+
+.proof-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .proof-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.card-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+}
+
+.card-header h3 {
+  font-size: 16px;
+}
+
+/* --------------------------------------------------------------------------
+   17. Parcours
+   -------------------------------------------------------------------------- */
+
+.parcours-subtitle {
+  font-size: 16px;
+  margin-top: var(--space-5);
+  margin-bottom: var(--space-3);
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  border-left: 1px solid var(--color-line);
+}
+
+.timeline-item {
+  padding-left: var(--space-4);
+}
+
+.timeline-meta {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  margin-bottom: var(--space-1);
+}
+
+.timeline-role {
+  font-size: 16px;
+  margin-bottom: var(--space-1);
+}
+
+.parcours-list li {
+  padding-block: var(--space-1);
+}
+
+/* --------------------------------------------------------------------------
+   18. Contact
+   -------------------------------------------------------------------------- */
+
+.social-links {
+  display: flex;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+.social-links a {
+  display: inline-flex;
+  color: var(--color-text-secondary);
+}
+
+.social-links a:hover {
+  color: var(--color-ink);
+}
+
+/* --------------------------------------------------------------------------
+   19. Pied de page
+   -------------------------------------------------------------------------- */
+
+.site-footer {
+  border-top: 1px solid var(--color-line);
+}
+
+.footer-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding-block: var(--space-4);
+  font-size: 13px;
+}
+
+.footer-link:hover {
+  color: var(--color-ink);
+}
