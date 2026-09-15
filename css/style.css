@@ -12,6 +12,7 @@
   /* Couleurs */
   --color-paper: #F7F6F3;
   --color-ink: #1C1E21;
+  --color-ink-rgb: 28, 30, 33;
   --color-line: #DEDBD3;
   --color-text-secondary: #3A3D42;
   --color-text-tertiary: #6B6F76;
@@ -19,6 +20,7 @@
   --color-done-text: #1F4438;
   --color-progress-bg: #FCF3DF;
   --color-progress-text: #7A5306;
+  --color-accent: #2F5D50;
 
   --color-surface: #FFFFFF;
 
@@ -42,6 +44,18 @@
 
   --container-max-width: 720px;
   --container-padding: var(--space-3);
+
+  /* Hauteur réelle mesurée du header : ~116px mobile (marque + nav sur 2
+     lignes), ~59px desktop (une ligne). Marge de sécurité ajoutée pour
+     absorber un futur libellé de nav plus long ou un rendu de police
+     différent — à revérifier si le contenu du header change. */
+  --header-height: 140px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --header-height: 76px;
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -89,6 +103,18 @@
   font-family: 'Inter';
   src: url('../assets/fonts/Inter/Inter18pt-Medium.woff2') format('woff2');
   font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('../assets/fonts/Inter/Inter18pt-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('../assets/fonts/Inter/Inter18pt-Bold.woff2') format('woff2');
+  font-weight: 700;
   font-display: swap;
 }
 @font-face {
@@ -201,6 +227,7 @@ textarea:focus-visible,
 
 .section {
   padding-block: var(--space-4);
+  scroll-margin-top: var(--header-height);
 }
 
 @media (min-width: 768px) {
@@ -285,6 +312,11 @@ textarea:focus-visible,
   font-size: 15px;
   line-height: 1.2;
   transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.hero-cta .btn-primary,
+.hero-cta .btn-secondary {
+  min-width: 11.5rem;
 }
 
 .btn-primary {
@@ -388,7 +420,7 @@ textarea:focus-visible,
 
 @media (min-width: 768px) {
   .hero-layout {
-    flex-direction: row;
+    flex-direction: row-reverse;
     align-items: center;
     gap: var(--space-6);
   }
@@ -398,12 +430,32 @@ textarea:focus-visible,
   }
 }
 
+.hero-badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  background-color: transparent;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  padding: 5px 12px;
+  margin-bottom: var(--space-3);
+}
+
 /* --------------------------------------------------------------------------
    13. En-tête / navigation
    -------------------------------------------------------------------------- */
 
 .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--color-paper);
   border-bottom: 1px solid var(--color-line);
+  box-shadow: 0 1px 2px rgba(var(--color-ink-rgb), 0.04);
 }
 
 .site-nav {
@@ -451,6 +503,8 @@ textarea:focus-visible,
 .hero-tagline {
   margin-top: var(--space-3);
   max-width: 48ch;
+  font-family: var(--font-body);
+  text-align: left;
 }
 
 /* --------------------------------------------------------------------------
@@ -466,13 +520,41 @@ textarea:focus-visible,
 
 @media (min-width: 768px) {
   .skills-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
+.card-number {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--color-accent);
+  line-height: 1.20;
+  letter-spacing: 0.08em;
+  text-align: left;
+  text-transform: none;
+  margin-bottom: var(--space-2);
+}
+
 .skill-item h3 {
-  font-size: 16px;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--color-ink);
+  line-height: 1.30;
+  text-align: left;
+  text-transform: none;
   margin-bottom: var(--space-1);
+}
+
+.skill-item p {
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  font-weight: 400;
+  line-height: 1.55;
+  text-align: left;
+  text-transform: none;
 }
 
 .skills-extra {
@@ -518,8 +600,8 @@ textarea:focus-visible,
 
 .card-header {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+  flex-wrap: nowrap;
+  align-items: flex-start;
   justify-content: space-between;
   gap: var(--space-2);
   margin-bottom: var(--space-2);
@@ -527,6 +609,47 @@ textarea:focus-visible,
 
 .card-header h3 {
   font-size: 16px;
+  font-weight: 700;
+}
+
+.card-header .badge-done,
+.card-header .badge-progress {
+  flex-shrink: 0;
+}
+
+.proof-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.proof-block {
+  margin-top: var(--space-2);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  text-transform: none;
+}
+
+.proof-block:first-child {
+  margin-top: 0;
+}
+
+.proof-block strong {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 22px;
+  text-transform: none;
+}
+
+.proof-divider {
+  border: none;
+  border-top: 1px solid var(--color-line);
+  /* Le bloc suivant ajoute déjà --space-2 en margin-top (flex column, pas
+     de fusion de marges) : on compense ici pour un espacement symétrique
+     de --space-3 de part et d'autre du trait. */
+  margin: var(--space-3) 0 var(--space-2);
 }
 
 /* --------------------------------------------------------------------------
@@ -550,6 +673,10 @@ textarea:focus-visible,
   padding-left: var(--space-4);
 }
 
+.timeline-dot {
+  display: none;
+}
+
 .timeline-meta {
   font-family: var(--font-mono);
   font-size: 12px;
@@ -561,8 +688,81 @@ textarea:focus-visible,
   margin-bottom: var(--space-1);
 }
 
-.parcours-list li {
-  padding-block: var(--space-1);
+.timeline-item p:not(.timeline-meta) {
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  line-height: 1.55;
+  opacity: 0.8;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .timeline {
+    flex-direction: row;
+    align-items: flex-start;
+    border-left: none;
+    position: relative;
+    gap: var(--space-4);
+  }
+
+  .timeline::before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: var(--color-line);
+  }
+
+  .timeline-item {
+    flex: 1 1 0;
+    min-width: 0;
+    padding-left: 0;
+    position: relative;
+  }
+
+  .timeline-dot {
+    display: block;
+    position: relative;
+    z-index: 1;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--color-ink);
+    margin-bottom: var(--space-3);
+  }
+}
+
+.parcours-divider {
+  border: none;
+  border-top: 1px solid var(--color-line);
+  margin: var(--space-6) 0;
+}
+
+.education-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.education-item {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+}
+
+.education-date {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  min-width: 90px;
+  flex-shrink: 0;
+}
+
+.education-label {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--color-ink);
 }
 
 /* --------------------------------------------------------------------------
