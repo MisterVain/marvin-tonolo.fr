@@ -689,7 +689,7 @@ textarea:focus-visible,
 }
 
 .timeline-item p:not(.timeline-meta) {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   font-size: 14.5px;
   line-height: 1.55;
   opacity: 0.8;
