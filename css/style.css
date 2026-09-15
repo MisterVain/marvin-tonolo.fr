@@ -558,11 +558,18 @@ textarea:focus-visible,
 }
 
 .skills-extra {
-  margin-top: var(--space-5);
+  margin-top: var(--space-6);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-line);
 }
 
 .skills-extra h3 {
-  font-size: 16px;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
   margin-bottom: var(--space-2);
 }
 
