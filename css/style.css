@@ -12,6 +12,7 @@
   /* Couleurs */
   --color-paper: #F7F6F3;
   --color-ink: #1C1E21;
+  --color-ink-rgb: 28, 30, 33;
   --color-line: #DEDBD3;
   --color-text-secondary: #3A3D42;
   --color-text-tertiary: #6B6F76;
@@ -42,6 +43,18 @@
 
   --container-max-width: 720px;
   --container-padding: var(--space-3);
+
+  /* Hauteur réelle mesurée du header : ~116px mobile (marque + nav sur 2
+     lignes), ~59px desktop (une ligne). Marge de sécurité ajoutée pour
+     absorber un futur libellé de nav plus long ou un rendu de police
+     différent — à revérifier si le contenu du header change. */
+  --header-height: 140px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --header-height: 76px;
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -89,6 +102,12 @@
   font-family: 'Inter';
   src: url('../assets/fonts/Inter/Inter18pt-Medium.woff2') format('woff2');
   font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('../assets/fonts/Inter/Inter18pt-Bold.woff2') format('woff2');
+  font-weight: 700;
   font-display: swap;
 }
 @font-face {
@@ -201,6 +220,7 @@ textarea:focus-visible,
 
 .section {
   padding-block: var(--space-4);
+  scroll-margin-top: var(--header-height);
 }
 
 @media (min-width: 768px) {
@@ -423,7 +443,12 @@ textarea:focus-visible,
    -------------------------------------------------------------------------- */
 
 .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--color-paper);
   border-bottom: 1px solid var(--color-line);
+  box-shadow: 0 1px 2px rgba(var(--color-ink-rgb), 0.04);
 }
 
 .site-nav {
@@ -555,8 +580,8 @@ textarea:focus-visible,
 
 .card-header {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+  flex-wrap: nowrap;
+  align-items: flex-start;
   justify-content: space-between;
   gap: var(--space-2);
   margin-bottom: var(--space-2);
@@ -564,6 +589,38 @@ textarea:focus-visible,
 
 .card-header h3 {
   font-size: 16px;
+  font-weight: 700;
+}
+
+.card-header .badge-done,
+.card-header .badge-progress {
+  flex-shrink: 0;
+}
+
+.proof-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.proof-block {
+  margin-top: var(--space-2);
+}
+
+.proof-block:first-child {
+  margin-top: 0;
+}
+
+.proof-block strong {
+  font-weight: 700;
+}
+
+.proof-divider {
+  border: none;
+  border-top: 1px solid var(--color-line);
+  /* Le bloc suivant ajoute déjà --space-2 en margin-top (flex column, pas
+     de fusion de marges) : on compense ici pour un espacement symétrique
+     de --space-3 de part et d'autre du trait. */
+  margin: var(--space-3) 0 var(--space-2);
 }
 
 /* --------------------------------------------------------------------------
