@@ -20,6 +20,7 @@
   --color-done-text: #1F4438;
   --color-progress-bg: #FCF3DF;
   --color-progress-text: #7A5306;
+  --color-accent: #2F5D50;
 
   --color-surface: #FFFFFF;
 
@@ -102,6 +103,12 @@
   font-family: 'Inter';
   src: url('../assets/fonts/Inter/Inter18pt-Medium.woff2') format('woff2');
   font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('../assets/fonts/Inter/Inter18pt-SemiBold.woff2') format('woff2');
+  font-weight: 600;
   font-display: swap;
 }
 @font-face {
@@ -520,21 +527,34 @@ textarea:focus-visible,
 .card-number {
   display: block;
   font-family: var(--font-mono);
-  font-weight: 500;
-  font-size: 11px;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--color-accent);
+  line-height: 1.20;
   letter-spacing: 0.08em;
-  color: var(--color-text-tertiary);
+  text-align: left;
+  text-transform: none;
   margin-bottom: var(--space-2);
 }
 
 .skill-item h3 {
-  font-size: 16px;
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--color-ink);
+  line-height: 1.30;
+  text-align: left;
+  text-transform: none;
   margin-bottom: var(--space-1);
 }
 
 .skill-item p {
+  font-family: var(--font-body);
+  font-size: 14.5px;
   font-weight: 400;
+  line-height: 1.55;
+  text-align: left;
+  text-transform: none;
 }
 
 .skills-extra {
@@ -604,6 +624,11 @@ textarea:focus-visible,
 
 .proof-block {
   margin-top: var(--space-2);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  text-transform: none;
 }
 
 .proof-block:first-child {
@@ -611,7 +636,11 @@ textarea:focus-visible,
 }
 
 .proof-block strong {
-  font-weight: 700;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 22px;
+  text-transform: none;
 }
 
 .proof-divider {
