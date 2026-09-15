@@ -106,6 +106,12 @@
 }
 @font-face {
   font-family: 'Inter';
+  src: url('../assets/fonts/Inter/Inter18pt-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter';
   src: url('../assets/fonts/Inter/Inter18pt-Bold.woff2') format('woff2');
   font-weight: 700;
   font-display: swap;
@@ -617,6 +623,12 @@ textarea:focus-visible,
 
 .proof-block {
   margin-top: var(--space-2);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #1C1E21;
+  line-height: 22px;
+  text-transform: none;
 }
 
 .proof-block:first-child {
@@ -624,7 +636,12 @@ textarea:focus-visible,
 }
 
 .proof-block strong {
-  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1C1E21;
+  line-height: 22px;
+  text-transform: none;
 }
 
 .proof-divider {
