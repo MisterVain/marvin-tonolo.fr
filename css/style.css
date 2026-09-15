@@ -794,6 +794,23 @@ textarea:focus-visible,
   justify-content: center;
 }
 
+.contact-email-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 14px;
+  font-weight: 400;
+  color: #1C1E21;
+  line-height: 1.20;
+  text-align: center;
+  text-transform: none;
+  background: none;
+  border: 1px solid #DEDBD3;
+  border-radius: 4px;
+  padding: 8px 16px;
+}
+
 .social-links {
   display: flex;
   justify-content: center;
@@ -803,7 +820,14 @@ textarea:focus-visible,
 
 .social-links a {
   display: inline-flex;
+  align-items: center;
+  justify-content: center;
   color: var(--color-text-secondary);
+  border: 1px solid #1C1E21;
+  border-radius: 4px;
+  background: none;
+  opacity: 1.00;
+  padding: 6px;
 }
 
 .social-links a:hover {
