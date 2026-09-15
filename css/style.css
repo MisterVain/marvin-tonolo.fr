@@ -574,8 +574,8 @@ textarea:focus-visible,
 
 .card-header {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+  flex-wrap: nowrap;
+  align-items: flex-start;
   justify-content: space-between;
   gap: var(--space-2);
   margin-bottom: var(--space-2);
@@ -583,6 +583,35 @@ textarea:focus-visible,
 
 .card-header h3 {
   font-size: 16px;
+  font-weight: 700;
+}
+
+.card-header .badge-done,
+.card-header .badge-progress {
+  flex-shrink: 0;
+}
+
+.proof-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.proof-block {
+  margin-top: var(--space-2);
+}
+
+.proof-block:first-child {
+  margin-top: 0;
+}
+
+.proof-block strong {
+  font-weight: 700;
+}
+
+.proof-divider {
+  border: none;
+  border-top: 1px solid var(--color-line);
+  margin: var(--space-3) 0;
 }
 
 /* --------------------------------------------------------------------------
