@@ -105,6 +105,12 @@
   font-display: swap;
 }
 @font-face {
+  font-family: 'Inter';
+  src: url('../assets/fonts/Inter/Inter18pt-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
   font-family: 'IBM Plex Mono';
   src: url('../assets/fonts/IBM_Plex_Mono/IBMPlexMono-Medium.woff2') format('woff2');
   font-weight: 500;
@@ -611,7 +617,10 @@ textarea:focus-visible,
 .proof-divider {
   border: none;
   border-top: 1px solid var(--color-line);
-  margin: var(--space-3) 0;
+  /* Le bloc suivant ajoute déjà --space-2 en margin-top (flex column, pas
+     de fusion de marges) : on compense ici pour un espacement symétrique
+     de --space-3 de part et d'autre du trait. */
+  margin: var(--space-3) 0 var(--space-2);
 }
 
 /* --------------------------------------------------------------------------
