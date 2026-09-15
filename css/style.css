@@ -226,13 +226,13 @@ textarea:focus-visible,
 }
 
 .section {
-  padding-block: var(--space-4);
+  padding-block: var(--space-6);
   scroll-margin-top: var(--header-height);
 }
 
 @media (min-width: 768px) {
   .section {
-    padding-block: var(--space-5);
+    padding-block: var(--space-7);
   }
 }
 
