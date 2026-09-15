@@ -42,6 +42,14 @@
 
   --container-max-width: 720px;
   --container-padding: var(--space-3);
+
+  --header-height: 120px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --header-height: 64px;
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -201,6 +209,7 @@ textarea:focus-visible,
 
 .section {
   padding-block: var(--space-4);
+  scroll-margin-top: var(--header-height);
 }
 
 @media (min-width: 768px) {
@@ -423,7 +432,12 @@ textarea:focus-visible,
    -------------------------------------------------------------------------- */
 
 .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--color-paper);
   border-bottom: 1px solid var(--color-line);
+  box-shadow: 0 1px 2px rgba(28, 30, 33, 0.04);
 }
 
 .site-nav {
