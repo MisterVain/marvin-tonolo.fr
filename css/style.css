@@ -688,6 +688,14 @@ textarea:focus-visible,
   margin-bottom: var(--space-1);
 }
 
+.timeline-item p:not(.timeline-meta) {
+  font-family: 'Inter', sans-serif;
+  font-size: 14.5px;
+  line-height: 1.55;
+  opacity: 0.8;
+  margin: 0;
+}
+
 @media (min-width: 768px) {
   .timeline {
     flex-direction: row;
@@ -708,7 +716,8 @@ textarea:focus-visible,
   }
 
   .timeline-item {
-    flex: 1;
+    flex: 1 1 0;
+    min-width: 0;
     padding-left: 0;
     position: relative;
   }
