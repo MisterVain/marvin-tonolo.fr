@@ -769,8 +769,28 @@ textarea:focus-visible,
    18. Contact
    -------------------------------------------------------------------------- */
 
+.contact-tagline {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #1C1E21;
+  line-height: 1.60;
+  text-align: center;
+  text-transform: none;
+  margin-top: var(--space-3);
+}
+
+#contact .section-title {
+  text-align: center;
+}
+
+#contact .hero-cta {
+  justify-content: center;
+}
+
 .social-links {
   display: flex;
+  justify-content: center;
   gap: var(--space-4);
   margin-top: var(--space-4);
 }
@@ -782,6 +802,11 @@ textarea:focus-visible,
 
 .social-links a:hover {
   color: var(--color-ink);
+}
+
+.social-links img {
+  width: 32px;
+  height: 32px;
 }
 
 /* --------------------------------------------------------------------------
