@@ -55,6 +55,8 @@
 @media (min-width: 768px) {
   :root {
     --header-height: 76px;
+    /* Marges de page réduites de 20% en desktop (16px -> 12.8px) */
+    --container-padding: calc(var(--space-3) * 0.8);
   }
 }
 
