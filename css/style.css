@@ -12,6 +12,7 @@
   /* Couleurs */
   --color-paper: #F7F6F3;
   --color-ink: #1C1E21;
+  --color-ink-rgb: 28, 30, 33;
   --color-line: #DEDBD3;
   --color-text-secondary: #3A3D42;
   --color-text-tertiary: #6B6F76;
@@ -43,12 +44,16 @@
   --container-max-width: 720px;
   --container-padding: var(--space-3);
 
-  --header-height: 120px;
+  /* Hauteur réelle mesurée du header : ~116px mobile (marque + nav sur 2
+     lignes), ~59px desktop (une ligne). Marge de sécurité ajoutée pour
+     absorber un futur libellé de nav plus long ou un rendu de police
+     différent — à revérifier si le contenu du header change. */
+  --header-height: 140px;
 }
 
 @media (min-width: 768px) {
   :root {
-    --header-height: 64px;
+    --header-height: 76px;
   }
 }
 
@@ -437,7 +442,7 @@ textarea:focus-visible,
   z-index: 100;
   background-color: var(--color-paper);
   border-bottom: 1px solid var(--color-line);
-  box-shadow: 0 1px 2px rgba(28, 30, 33, 0.04);
+  box-shadow: 0 1px 2px rgba(var(--color-ink-rgb), 0.04);
 }
 
 .site-nav {
