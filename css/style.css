@@ -855,3 +855,110 @@ textarea:focus-visible,
 .footer-link:hover {
   color: var(--color-ink);
 }
+
+/* --------------------------------------------------------------------------
+   20. Ajustements mobile (@media max-width: 767px uniquement — borne basse
+   du breakpoint desktop @media (min-width: 768px) utilisé partout ailleurs
+   dans ce fichier, pour éviter tout chevauchement exactement à 768px)
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 767px) {
+  /* Navigation sur une seule ligne, scroll horizontal discret si ça déborde */
+  .site-nav {
+    flex-wrap: nowrap;
+  }
+
+  .nav-brand {
+    flex-shrink: 0;
+  }
+
+  .site-nav nav {
+    min-width: 0;
+  }
+
+  .nav-list {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    /* Ombres de scroll : visibles uniquement tant qu'il reste du contenu à
+       découvrir de ce côté (se masquent d'elles-mêmes en fin de course),
+       via la technique des calques de fond local/scroll — pas de JS. */
+    background-image:
+      linear-gradient(to right, var(--color-paper) 30%, rgba(247, 246, 243, 0)),
+      linear-gradient(to left, var(--color-paper) 30%, rgba(247, 246, 243, 0)),
+      linear-gradient(to right, rgba(var(--color-ink-rgb), 0.18), rgba(var(--color-ink-rgb), 0)),
+      linear-gradient(to left, rgba(var(--color-ink-rgb), 0.18), rgba(var(--color-ink-rgb), 0));
+    background-position: 0 0, 100% 0, 0 0, 100% 0;
+    background-repeat: no-repeat;
+    background-color: var(--color-paper);
+    background-size: 20px 100%, 20px 100%, 10px 100%, 10px 100%;
+    background-attachment: local, local, scroll, scroll;
+  }
+
+  .nav-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-list li {
+    flex-shrink: 0;
+  }
+
+  :root {
+    --header-height: 64px;
+  }
+
+  /* Hero en carte compacte : avatar réduit en ligne avec le nom,
+     badge/tagline/CTA repositionnés sans toucher au DOM (hero-content
+     passe en display:contents pour rejoindre la grille du hero-layout). */
+  .hero-layout {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    row-gap: 0;
+    column-gap: var(--space-3);
+  }
+
+  .hero-content {
+    display: contents;
+  }
+
+  .hero-avatar {
+    grid-column: 1;
+    grid-row: 1;
+    width: 64px;
+    height: 64px;
+  }
+
+  .hero-badge {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-self: start;
+    margin-top: var(--space-3);
+    margin-bottom: 0;
+  }
+
+  .hero-name {
+    grid-column: 2;
+    grid-row: 1;
+    font-size: 26px;
+  }
+
+  .hero-tagline {
+    grid-column: 1 / -1;
+    grid-row: 3;
+  }
+
+  .hero-layout .hero-cta {
+    grid-column: 1 / -1;
+    grid-row: 4;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-cta .btn-primary,
+  .hero-cta .btn-secondary {
+    width: 100%;
+    min-width: 0;
+  }
+}
