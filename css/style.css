@@ -881,6 +881,19 @@ textarea:focus-visible,
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
+    /* Ombres de scroll : visibles uniquement tant qu'il reste du contenu à
+       découvrir de ce côté (se masquent d'elles-mêmes en fin de course),
+       via la technique des calques de fond local/scroll — pas de JS. */
+    background-image:
+      linear-gradient(to right, var(--color-paper) 30%, rgba(247, 246, 243, 0)),
+      linear-gradient(to left, var(--color-paper) 30%, rgba(247, 246, 243, 0)),
+      linear-gradient(to right, rgba(var(--color-ink-rgb), 0.18), rgba(var(--color-ink-rgb), 0)),
+      linear-gradient(to left, rgba(var(--color-ink-rgb), 0.18), rgba(var(--color-ink-rgb), 0));
+    background-position: 0 0, 100% 0, 0 0, 100% 0;
+    background-repeat: no-repeat;
+    background-color: var(--color-paper);
+    background-size: 20px 100%, 20px 100%, 10px 100%, 10px 100%;
+    background-attachment: local, local, scroll, scroll;
   }
 
   .nav-list::-webkit-scrollbar {
@@ -936,7 +949,7 @@ textarea:focus-visible,
     grid-row: 3;
   }
 
-  .hero-cta {
+  .hero-layout .hero-cta {
     grid-column: 1 / -1;
     grid-row: 4;
     flex-direction: column;
