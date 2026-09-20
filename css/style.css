@@ -902,6 +902,8 @@ textarea:focus-visible,
     display: grid;
     grid-template-columns: auto 1fr;
     align-items: center;
+    row-gap: 0;
+    column-gap: var(--space-3);
   }
 
   .hero-content {
@@ -919,6 +921,8 @@ textarea:focus-visible,
     grid-column: 1 / -1;
     grid-row: 2;
     justify-self: start;
+    margin-top: var(--space-3);
+    margin-bottom: 0;
   }
 
   .hero-name {
