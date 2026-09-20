@@ -855,3 +855,93 @@ textarea:focus-visible,
 .footer-link:hover {
   color: var(--color-ink);
 }
+
+/* --------------------------------------------------------------------------
+   20. Ajustements mobile (@media max-width: 767px uniquement — borne basse
+   du breakpoint desktop @media (min-width: 768px) utilisé partout ailleurs
+   dans ce fichier, pour éviter tout chevauchement exactement à 768px)
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 767px) {
+  /* Navigation sur une seule ligne, scroll horizontal discret si ça déborde */
+  .site-nav {
+    flex-wrap: nowrap;
+  }
+
+  .nav-brand {
+    flex-shrink: 0;
+  }
+
+  .site-nav nav {
+    min-width: 0;
+  }
+
+  .nav-list {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .nav-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-list li {
+    flex-shrink: 0;
+  }
+
+  :root {
+    --header-height: 64px;
+  }
+
+  /* Hero en carte compacte : avatar réduit en ligne avec le nom,
+     badge/tagline/CTA repositionnés sans toucher au DOM (hero-content
+     passe en display:contents pour rejoindre la grille du hero-layout). */
+  .hero-layout {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+  }
+
+  .hero-content {
+    display: contents;
+  }
+
+  .hero-avatar {
+    grid-column: 1;
+    grid-row: 1;
+    width: 64px;
+    height: 64px;
+  }
+
+  .hero-badge {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-self: start;
+  }
+
+  .hero-name {
+    grid-column: 2;
+    grid-row: 1;
+    font-size: 26px;
+  }
+
+  .hero-tagline {
+    grid-column: 1 / -1;
+    grid-row: 3;
+  }
+
+  .hero-cta {
+    grid-column: 1 / -1;
+    grid-row: 4;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-cta .btn-primary,
+  .hero-cta .btn-secondary {
+    width: 100%;
+    min-width: 0;
+  }
+}
