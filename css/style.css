@@ -869,7 +869,7 @@ textarea:focus-visible,
   }
 
   .nav-brand {
-    flex-shrink: 0;
+    display: none;
   }
 
   .site-nav nav {
