@@ -863,6 +863,11 @@ textarea:focus-visible,
    -------------------------------------------------------------------------- */
 
 @media (max-width: 767px) {
+  /* Test : header/nav masqués sur mobile (à retirer si non concluant) */
+  .site-header {
+    display: none;
+  }
+
   /* Navigation sur une seule ligne, scroll horizontal discret si ça déborde */
   .site-nav {
     flex-wrap: nowrap;
@@ -905,7 +910,7 @@ textarea:focus-visible,
   }
 
   :root {
-    --header-height: 64px;
+    --header-height: 0px;
   }
 
   /* Hero en carte compacte : avatar réduit en ligne avec le nom,
